@@ -15,15 +15,14 @@ int Power ( double fbaseNum, int iexponent )
 	if ( zeroethPowerFlag )
 	{ 
 		int iresult = ( ibaseNum * 1 );
-		int idecrementedIExponent = ( iexponent - 1 );
-		printf ( "\n\t(%i^%i) => %i * (%i^%i) =  %i\n", ibaseNum, iexponent, ibaseNum, ibaseNum, idecrementedIExponent, iresult );	
+		printf ( "\n\t(%i^%i) => %i * (%i^%i) =  %i\n", ibaseNum, iexponent, ibaseNum, ibaseNum, iexponent, iresult );	
 		return iresult;
 	}
 	else
 	{
-		int idecrementedIExponent = ( iexponent - 1 );
-		int iresult = ibaseNum * Power ( fbaseNum, idecrementedIExponent );
-		printf ( "\n\t(%i^%i) => %i * (%i^%i) =  %i\n", ibaseNum, iexponent, ibaseNum, ibaseNum, idecrementedIExponent, iresult );
+		int idecrementedIexponent = ( iexponent - 1 );
+		int iresult = ibaseNum * Power ( fbaseNum, idecrementedIexponent );
+		printf ( "\n\t(%i^%i) => %i * (%i^%i) =  %i\n", ibaseNum, iexponent, ibaseNum, ibaseNum, iexponent, iresult );
 		return  iresult;
 	}
 }
@@ -34,3 +33,5 @@ int main ( void )
 	Power ( 5, 3 );
 	return EXIT_SUCCESS;
 }
+
+
