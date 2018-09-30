@@ -29,7 +29,6 @@ void PrintPowersOfTwo ( void )
 	const double MAX_POWER_OF_TWO = 65536.00000;
 	double powerOfTwo = FIRST_POWER_OF_TWO;
 	double fpower = 0.00000;
-	int ipower = ( int ) fpower;
 	
 	printf ( "\n\n\t\tPOWERS OF TWO: 1 - 65536" );
 	printf ( "\n\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ );
@@ -50,4 +49,6 @@ int main ( void )
 	PrintPowersOfTwo();
 	return EXIT_SUCCESS;	
 }
+
+
 
