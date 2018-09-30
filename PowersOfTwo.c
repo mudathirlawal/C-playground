@@ -31,17 +31,17 @@ void PrintPowersOfTwo ( void )
 	double fpower = 0.00000;
 	int ipower = ( int ) fpower;
 	
-	printf ( "\n\t\tPOWERS OF TWO: 1 - 65536" );
+	printf ( "\n\n\t\tPOWERS OF TWO: 1 - 65536" );
 	printf ( "\n\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ, EQ );
 
 	while ( powerOfTwo <= MAX_POWER_OF_TWO )
 	{
-		printf ( "\n\t\t%.0f%c%c%c%.0f\t%c%c%c\t%.0f\n", TWO, ES, CR, ES, fpower, EQ, ES, ES, powerOfTwo );
+		printf ( "\n\t\t%.0f%c%c%c%.0f\t%c%c%c\t%.0f", TWO, ES, CR, ES, fpower, EQ, ES, ES, powerOfTwo );
 		powerOfTwo = powerOfTwo * 2.0;
 		fpower = fpower + 1.0;
 	}	
 
-	printf ( "\n" );
+	printf ( "\n\n" );
 }
 
 
