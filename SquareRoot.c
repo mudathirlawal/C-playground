@@ -1,3 +1,14 @@
+/*
+ * File:        SquareRoot.c
+ * Author:      Mudathir Lawal
+ * Email:       mudathir.lawal@yahoo.com
+ * GitHub:      github.com/mudathirlawal
+ * Last Edit:   2nd October, 2018.   
+ * Version:     1.1.0 EN
+ *
+ * Purpose:     To return the the square root of a number. 
+ */
+
 #include <stdio.h>
 #include <math.h>
 #define EXIT_SUCCESS 0

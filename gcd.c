@@ -1,4 +1,16 @@
-#include <stdio.h>
+/*
+ * File:        gcd.c
+ * Author:      Mudathir Lawal
+ * Email:       mudathir.lawal@yahoo.com
+ * GitHub:      github.com/mudathirlawal
+ * Last Edit:   22th September, 2018.   
+ * Version:     1.1.0 EN
+ *
+ * Purpose:     To find the greatest common divisor. 
+ *              
+ */
+
+ #include <stdio.h>
 //#define TRUE 1
 //#define FALSE 0
 //#define EXIT_SUCCESS 0

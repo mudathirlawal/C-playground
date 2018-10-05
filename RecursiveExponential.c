@@ -1,3 +1,15 @@
+/*
+ * File:        RecursivePower.c
+ * Author:      Mudathir Lawal
+ * Email:       mudathir.lawal@yahoo.com
+ * GitHub:      github.com/mudathirlawal
+ * Last Edit:   20th September, 2018.   
+ * Version:     1.1.0 EN
+ *
+ * Purpose:     To return the whole form of a number 
+ *				when the index form is known.       
+ */
+
 #include <stdio.h>
 #define TRUE 1
 #define FALSE 0

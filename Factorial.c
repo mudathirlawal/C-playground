@@ -1,3 +1,16 @@
+/*
+ * File:        Factorial.c
+ * Author:      Mudathir Lawal
+ * Email:       mudathir.lawal@yahoo.com
+ * GitHub:      github.com/mudathirlawal
+ * Last Edit:   5th October, 2018.   
+ * Version:     1.1.0 EN
+ *
+ * Purpose:     To check if character input by 
+ *              user is a digit between 0 - 9.
+ *              
+ */
+
 #include <stdio.h>
 
 // getFactorial ()

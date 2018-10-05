@@ -1,3 +1,16 @@
+/*
+ * File:        distance.c
+ * Author:      Mudathir Lawal
+ * Email:       mudathir.lawal@yahoo.com
+ * GitHub:      github.com/mudathirlawal
+ * Last Edit:   15th September, 2018.   
+ * Version:     1.1.0 EN
+ *
+ * Purpose:     To calculate distance between two points.
+ *              
+ *              
+ */
+
 #include <stdio.h>
 #include <math.h>
 
