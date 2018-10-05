@@ -1,10 +1,15 @@
 /*
  * File:        PrintMultiples.c
  *
- * Author:      Mike Vine Author of C Programming for
- * 				Absolute Beginer. I am keeping it for
- *				reference/teaching purposes.
+ * Author:      Thomas Scheffler; the author of     
+ *				"How to Think Like a Computer Scientist,"
+ *				C-Version. 		
+ *
+ * Purpose:     To print multiples of the logarithm
+ *				of some numbers.  
+ *             
  */
+
 
 #include <stdio.h>
 
