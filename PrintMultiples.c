@@ -1,0 +1,41 @@
+/*
+ * File:        PrintMultiples.c
+ *
+ * Author:      Mike Vine Author of C Programming for
+ * 				Absolute Beginer. I am keeping it for
+ *				reference/teaching purposes.
+ */
+
+#include <stdio.h>
+
+void PrintMultiples (int n, int high)
+{
+int i = 1;
+
+while (i <= high)
+{
+printf ("%i\t", n*i);
+i = i + 1;
+}
+printf ("\n");
+}
+
+void PrintMultTable (int high)
+{
+int i = 1;
+printf ("\n");
+while (i <= high)
+{
+	printf ("\t");
+PrintMultiples (i, i);
+i = i + 1;
+}
+printf ("\n");
+}
+
+int main (void)
+{
+	PrintMultTable ( 7 );
+	return 0;
+}
+
