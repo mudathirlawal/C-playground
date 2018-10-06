@@ -7,8 +7,9 @@
  * Version:     1.1 EN
  *
  * Purpose:     To output the sum of the first n terms
- *				of an infinite series expansion.
- *				The question named gaussQuestion.png is attached herewith.
+ *				of Gauss's infinite series expansion.
+ *				The question named gaussQuestion.png 
+ *				is attached herewith.
  */		
 
 #include <stdio.h>
@@ -23,7 +24,7 @@ double Gauss ( int CONSTANT, int noOfTerms );
 // main()
 int main ( void )
 {
-	Gauss ( 2, 32 );
+	Gauss ( 2, 39 );
 	return EXIT_SUCCESS;
 }
 
@@ -46,7 +47,9 @@ double Gauss ( const int CONSTANT, int noOfTerms )
 		nthTerm = nthTerm + 1;
 		printf ( "\tnthTerm: %i; expansionSum: %f\n", nthTerm, expansionSum );
 	}
-	printf ( "\n\texpansionSum: %f\n\n", expansionSum );
+	printf ( "\n" );
+	printf ( "\tNotice that Gauss' Infinite Expansion terminates after the 32nd term.\n" );
+	printf ( "\texpansionSum: %f\n\n", expansionSum );
 	return expansionSum;
 }
 
