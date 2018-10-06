@@ -3,10 +3,12 @@
  * Author:      Mudathir Lawal
  * Email:       mudathir.lawal@yahoo.com
  * GitHub:      github.com/mudathirlawal
- * Last Edit:   2nd October, 2018.   
+ * Last Edit:   20th September, 2018.   
  * Version:     1.1.0 EN
  *
- * Purpose:     To return the the square root of a number. 
+ * Purpose:     To find the Square root of 
+ *				number from a guess. 
+ *				       
  */
 
 #include <stdio.h>
@@ -21,22 +23,24 @@ double SquareRoot ( int squareNumber, double initialGuess )
 	int sufficientClosenessFlag = 1;
 	double newGuess; 
 	double guessDiff;
-	
+	printf ( "\n" );
+	printf ( "\tinitialGuess: %f\tsquareNumber: %i\n\n", initialGuess, squareNumber );
+
 	while ( sufficientClosenessFlag )
 	{
 		newGuess = ( initialGuess + ( squareNumber / initialGuess ) ) / 2;	
 		guessDiff = initialGuess - newGuess;
 		sufficientClosenessFlag = MAX_DIFF < fabs ( guessDiff );
 		initialGuess = newGuess;
-		printf ( "\n\tnewGuess: %f;\tguessDiff: %f;\tsufficientClosenessFlag: %i\n", newGuess, guessDiff, sufficientClosenessFlag ); // A USEFULL SCAFFOLDING.
+		printf ( "\tnewGuess: %f;\tguessDiff: %f;\tsufficientClosenessFlag: %i\n", newGuess, guessDiff, sufficientClosenessFlag ); // A USEFULL SCAFFOLDING.
 	}
-	printf ( "\n\t%f\n\n", newGuess );
+	printf ( "\n\tSquare Root = %.0f\n\n", newGuess );
 	return newGuess;
 }
 
 int main ( void )
 {
-	SquareRoot ( 9, 4.5 );
+	SquareRoot ( 49, 24.5 );
 	return EXIT_SUCCESS;
 }
 
