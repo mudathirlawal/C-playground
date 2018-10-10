@@ -28,8 +28,9 @@ void convertNumberToArray ( int numberDigits [], int number, int arraySize  )
 	conversionOps ( numberDigits, arraySize, number, lastDigit, loopVar, result );
 }
 
+
 // Setting up:
-void setupNumberRearranged ( int numberDigits [], int numberRearranged [], int arraySize )
+void rearrangeDigits ( int numberDigits [], int digitsRearranged [], int arraySize )
 {
 	int digitIndex;
 	int loopVar = 0;
@@ -38,7 +39,7 @@ void setupNumberRearranged ( int numberDigits [], int numberRearranged [], int a
 	for ( loopVar = 0; loopVar < arraySize; loopVar++ )
 	{ 
 		digitIndex = decrementedArraysize - loopVar;
-		numberRearranged [ loopVar ] = numberDigits [ digitIndex ];
+		digitsRearranged [ loopVar ] = numberDigits [ digitIndex ];
 	}
 } 
 
@@ -46,29 +47,35 @@ void setupNumberRearranged ( int numberDigits [], int numberRearranged [], int a
 void printArray ( int array [], int arrayLength )
 {
 	int i = 0;
-	printf ( "\n\t" );
+	//printf ( "\n\t" );
 
 	for ( i = 0; i < arrayLength; i++ )
 	{
-		printf ( "%i ", array [ i ] );
+		printf ( "%i", array [ i ] );
 	} 
-	printf ( "\n\n" );
+	printf ( "\n" );
 }
 
 // Main Function:
 int main (void)
 {
-	int arrayElements = 7;
-	int number = 1234567;
+	int arrayElements = 9;
+	int number = 123456789;
 	int numberDigits [ arrayElements ];
 	int arraySize = sizeof ( numberDigits ) / sizeof ( numberDigits [ 0 ] );
-	int numberRearranged [ arrayElements ]; 
+	int digitsRearranged [ arraySize ]; 
 	
-	printf ( "\n\n" );
+	printf ( "\n" );
 	convertNumberToArray ( numberDigits, number, arraySize );
+	rearrangeDigits ( numberDigits, digitsRearranged, arraySize );
+
+	printf ( "\n" );
+	printf ( "\tNumber: %i\n", number );
+	printf ( "\tNumber converted to array of digits: " );
 	printArray ( numberDigits, arraySize );
-	setupNumberRearranged ( numberDigits, numberRearranged, arraySize );
-	printArray ( numberRearranged, arraySize );
+	printf ( "\tDigits rearranged: " );
+	printArray ( digitsRearranged, arraySize );
+	printf ( "\n" );
 	return EXIT_SUCCESS;
 }
 
