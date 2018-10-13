@@ -1,7 +1,20 @@
+/*
+ * File:        GenerateHistogram.c
+ * Author:      Mudathir Lawal
+ * Email:       mudathir.lawal@yahoo.com
+ * GitHub:      github.com/mudathirlawal
+ * Last Edit:   13th October, 2018.   
+ * Version:     1.0.0 EN
+ *
+ * Purpose:     To generate an array of random numbers;   
+ *				and to generate a histogram of the range
+ *				of values in the array of random numbers.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
-
+// My procedure to initialize all elements of array to zero.
 void InitializeArray ( int array [], int arraySize )
 {
 	const int NUM = 0;
@@ -17,20 +30,20 @@ void InitializeArray ( int array [], int arraySize )
 	printf ( "\n" );
 }
 
-
+// Function to generate histogram; I got this idea from "How to Think Like a Computer Scientist."
 void GenerateHistogram ( int array [], int histogram [], int arraySz, int histogramSz, int MIN, int MAX )
 {
 	int incrementor = MIN;
 	InitializeArray ( histogram, histogramSz );
 	
-	for ( incrementor = MIN; incrementor < MAX; incrementor++ )
+	for ( incrementor = MIN; incrementor < arraySz; incrementor++ )
 	{
 		int index = array [ incrementor ];
-		histogram [ index ] ++;
+		histogram [ index ] ++;		// OR: = histogram [ index ] + 1;
 	}
 }
 
-
+// This generates an array of random numbers.
 void RandomizeArray (int array[], int length, const int UPPER_BOUND )
 {
 	int i;
@@ -43,21 +56,44 @@ void RandomizeArray (int array[], int length, const int UPPER_BOUND )
 	//printf ( "\n" );
 }
 
-
+// Function to print they contents of array; for debugging
 void PrintArray (int array [], int length)
 {
 	printf ( "\n" );	
-	printf ( "\t" );
+
 	int i;
+	const char ES = ' ';
 
 	for (i = 0; i < length; i++)
 	{
-		printf ("%i ", array[i]);
+		printf ( "\t%c%c%carray [ %i ] => %i\n", ES, ES, ES, i, array [ i ] );
+		//printf ("%i ", array[i]);
 	}
+
 	printf ( "\n\n" );
 }
 
+// Function to print histogram
+void PrintStatistics ( int histogram [], int histogramSize )
+{
+	int i = 0;
+	const char ES = ' ';
 
+	printf ( "\n" );
+	printf ( "\tHISTOGRAM: ARRAY OF NOS OF COUNTS\n" );
+    printf ( "\t=================================\n" );
+    printf ( "\n" );
+	printf ( "\t%c%c%c%cRandomValue\t%c%cHistogram\n", ES, ES, ES, ES, ES, ES );
+
+	for ( i = 0; i < histogramSize; i++ )
+	{
+		printf ( "\t\t%c%i\t%c%c%i\n", ES, i, ES, ES, histogram [ i ] ); 
+	}
+
+	printf ( "\n" );
+}
+
+// Below lies the Main Function of this program:
 int main ( void )
 {
 	const int MIN = 0;
@@ -72,8 +108,11 @@ int main ( void )
 
 	RandomizeArray ( myArray, myArraySize, MAX );
 	GenerateHistogram ( myArray, histogram, myArraySize, histogramSize, MIN, MAX );
+	printf ( "\tARRAY OF RANDOM NUMBERS\n" );
+	printf ( "\t=======================\n" );
     PrintArray ( myArray, myArraySize );
-    PrintArray ( histogram, histogramSize );
+    PrintStatistics ( histogram, histogramSize ); 
+
 	return EXIT_SUCCESS;
 }
 
@@ -81,7 +120,7 @@ int main ( void )
 /*
  * 
  *  I actually plan to develope the code as an alternative means of generating 
- *  a random of integers from a given range.
+ *  a random series of integers from a given range.
  *
  *
 int randomNumFrom ( const int MIN, const int MAX )
