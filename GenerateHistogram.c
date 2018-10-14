@@ -44,29 +44,28 @@ void GenerateHistogram ( int array [], int histogram [], int arraySz, int histog
 }
 
 // This generates an array of random numbers.
-void RandomizeArray (int array[], int length, const int UPPER_BOUND )
+void RandomizeArray (int array[], int length, const int L_BOUND, const int U_BOUND )
 {
-	int i;
+	int i = L_BOUND;
 	//printf ( "\n" );
-	for (i = 0; i < length; i++)
+	for ( i = L_BOUND; i < length; i++ )
 	{
-		array[i] = rand() % UPPER_BOUND;
+		array [ i ] = rand () % U_BOUND;
 		//printf ( "\tarray [ %i ] => %i\n", i, array [ i ] );
 	}
 	//printf ( "\n" );
 }
 
 // Function to print they contents of array; for debugging
-void PrintArray (int array [], int length)
+void PrintArray (int array [], int length, int MIN)
 {
 	printf ( "\n" );	
 
 	int i;
-	const char ES = ' ';
-
-	for (i = 0; i < length; i++)
+	
+	for (i = MIN; i < length; i++)
 	{
-		printf ( "\t%c%c%carray [ %i ] => %i\n", ES, ES, ES, i, array [ i ] );
+		printf ( "\t\t  array [ %i ] => %i\n", i, array [ i ] );
 		//printf ("%i ", array[i]);
 	}
 
@@ -74,9 +73,9 @@ void PrintArray (int array [], int length)
 }
 
 // Function to print histogram
-void PrintStatistics ( int histogram [], int histogramSize )
+void PrintStatistics ( int histogram [], int histogramSize, int MIN )
 {
-	int i = 0;
+	int i = MIN;
 	const char ES = ' ';
 
 	printf ( "\n" );
@@ -85,7 +84,7 @@ void PrintStatistics ( int histogram [], int histogramSize )
     printf ( "\n" );
 	printf ( "\t%c%c%c%cRandomValue\t%c%cHistogram\n", ES, ES, ES, ES, ES, ES );
 
-	for ( i = 0; i < histogramSize; i++ )
+	for ( i = MIN; i < histogramSize; i++ )
 	{
 		printf ( "\t\t%c%i\t%c%c%i\n", ES, i, ES, ES, histogram [ i ] ); 
 	}
@@ -98,7 +97,8 @@ int main ( void )
 {
 	const int MIN = 0;
 	const int MAX = 11;
-	const int MY_ARRAY_ELEMENTS = 15;
+	const char ES = ' ';
+	const int MY_ARRAY_ELEMENTS = 10;
 	const int RANGE = MAX - MIN; 
 
 	int histogram [ RANGE ]; 
@@ -106,12 +106,12 @@ int main ( void )
 	int histogramSize = sizeof ( histogram ) / sizeof ( histogram [ MIN ] );
 	int myArraySize = sizeof ( myArray ) / sizeof ( myArray [ 0 ] );
 
-	RandomizeArray ( myArray, myArraySize, MAX );
+	RandomizeArray ( myArray, myArraySize, MIN, MAX );
 	GenerateHistogram ( myArray, histogram, myArraySize, histogramSize, MIN, MAX );
-	printf ( "\tARRAY OF RANDOM NUMBERS\n" );
-	printf ( "\t=======================\n" );
-    PrintArray ( myArray, myArraySize );
-    PrintStatistics ( histogram, histogramSize ); 
+	printf ( "\t%c%c%c%c%c%cARRAY OF RANDOM NUMBERS\n", ES, ES, ES, ES, ES, ES );
+	printf ( "\t%c%c%c%c%c%c=======================\n", ES, ES, ES, ES, ES, ES );
+    PrintArray ( myArray, myArraySize, MIN );
+    PrintStatistics ( histogram, histogramSize, MIN ); 
 
 	return EXIT_SUCCESS;
 }
@@ -119,20 +119,40 @@ int main ( void )
 
 /*
  * 
- *  I actually plan to develope the code as an alternative means of generating 
- *  a random series of integers from a given range.
+ *  The above RandomizeArray Method can be used only for 
+ *  generating random numbers between zero and an upperbound;
+ *  the following code can be used to generate a random series 
+ *  of integers from any number to any other number.
+ *
  *
  *
 int randomNumFrom ( const int MIN, const int MAX )
 {
+	int i;
+	const int RANGE = MAX - MIN;
+	const int GROUPS_OF_RANGE = RAND_MAX / RANGE; // Groups of RANGE in RAND_MAX.h
+	int randomNumFromMinToMax;
 	printf ( "\n" );
-	int randomNum = rand ( );  // ie., Random number from 0 - RAND_MAX.
-	const int RANGE = MIN - MAX;
-	const int GROUPS_OF_RANGE = RAND_MAX / RANGE; // Groups of RANGE in RAND_MAX
-	int randomNumFromZeroToMax = randomNum / GROUPS_OF_RANGE; // rand() from 0 - MAX.
-	printf ( "\trandomNumFromZeroToMax: %i\n", randomNumFromZeroToMax );
-	return ( MIN + randomNumFromZeroToMax );
-	printf ( "\n" );
+
+	for ( i = MIN; i < MAX; i++ )
+	{
+		int randomNum = rand ( );  // ie., Random number from 0 - RAND_MAX.
+		int randomNumFromZeroToMax = randomNum / GROUPS_OF_RANGE; // rand() from 0 - MAX.
+		int randomNumFromMinToMax  = MIN + randomNumFromZeroToMax;
+
+		printf ( "\trandomNumFromZeroToMax: %i\n", randomNumFromZeroToMax );
+		printf ( "\trandomNumFromMinToMax:  %i\n", randomNumFromMinToMax );
+		printf ( "\n" );
+	}
+
+	return ( randomNumFromMinToMax );
+}
+
+
+int main ( void )
+{
+	randomNumFrom ( 5, 10 );
+	return EXIT_SUCCESS;
 }
  *
  */
