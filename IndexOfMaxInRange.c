@@ -68,9 +68,9 @@ int GetGreaterNum ( int num1, int num2 )
 
 int IndexOfMaxInRange ( int array [], int arrayLen ) 
 {
-	int i, maxElement, indexOfMaxElement, indexOfAssumedMaxElem; 
 	int indexOfLastElem = arrayLen - 1;
-	int assumedMaxElement = 0;
+	int assumedMaxElement = array [ 0 ];
+	int i, maxElement, indexOfMaxElement, indexOfAssumedMaxElem; 
 
 	for ( i = 0; i < arrayLen; i++ )
 	{
@@ -104,7 +104,8 @@ int IndexOfMaxInRange ( int array [], int arrayLen )
 // Main Function begins Here:
 int main ( void )
 {
-	int arrayOfNum [ 7 ] = { 1, 9, 7, 4, -69, 3, 0 };
+	//int arrayOfNum [ 7 ] = { -1, 9, 7, 4, 69, 3, 0 };
+	int arrayOfNum [ 11 ] = { -3, -13, -20, -3, -4, -6, -7, -8, -9, -5, -11 }; // Useful for testing
 	int sizeOfArray = sizeof ( arrayOfNum ) / sizeof ( arrayOfNum [ 0 ] );
 
 	IndexOfMaxInRange ( arrayOfNum, sizeOfArray );
