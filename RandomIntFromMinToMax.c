@@ -1,7 +1,8 @@
 /*
- * File:        RandomIntFromMinToMAx.c
- * Author:      The underlying algorithm of this code does not belong to me. 
-*		I learnt it somewhere on the internet.
+ * File:        RandomIntFromMinToMax.c
+ * Author:      Mudathir Lawal; but The underlying algorithm 
+ *              of this code does not belong to me. I learnt
+ *		        it somewhere on the internet.
  * Last Edit:   13th October, 2018.   
  * Version:     1.0.0 EN
  *
@@ -22,14 +23,14 @@ int randomNumFrom ( const int MIN, const int MAX )
 	int randomNumFromMinToMax;
 	printf ( "\n" );
 
-	for ( i = MIN; i < MAX; i++ )
+	for ( i = MIN; i < MAX; i++ ) // LOOPING JUST FOR DEBUGGING
 	{
 		int randomNum = rand ( );  // ie., Random number from 0 - RAND_MAX.
-		int randomNumFromZeroToMax = randomNum / GROUPS_OF_RANGE; // rand() from 0 - MAX.
+		int randomNumFromZeroToRange = randomNum / GROUPS_OF_RANGE; // rand() from 0 - RANGE.
 		int randomNumFromMinToMax  = MIN + randomNumFromZeroToMax;
 
-		printf ( "\trandomNumFromZeroToMax: %i\n", randomNumFromZeroToMax );
-		printf ( "\trandomNumFromMinToMax:  %i\n", randomNumFromMinToMax );
+		printf ( "\trandomNumFromZeroToRange: %i\n", randomNumFromZeroToRange ); // JUST FOR DEBUGGING
+		printf ( "\trandomNumFromMinToMax:  %i\n", randomNumFromMinToMax );  // JUST FOR DEBUGGING
 		printf ( "\n" );
 	}
 

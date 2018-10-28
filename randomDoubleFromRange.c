@@ -11,18 +11,18 @@
 
 double randomNumFrom ( const double MIN, const double MAX )
 {
-	int randomNum = rand ( );
-	double range = MIN - MAX;
-	double groupsOfRange = RAND_MAX / range;
-	double fRandomNum = ( double ) randomNum; 
-	return ( MIN + ( fRandomNum / groupsOfRange ) );
+	int iRandomNum = rand ( );
+	const double RANGE = MAX - MIN;
+	double GROUPS_OF_RANGE = RAND_MAX / RANGE;
+	double fRandomNum = ( double ) iRandomNum; 
+	return ( MIN + ( fRandomNum / GROUPS_OF_RANGE ) );
 }
 
 // main function:
 int main ( void )
 {
 	printf ( "\n" );
-	double storeRand = randomNumFrom ( 200, 250 );
+	double storeRand = randomNumFrom ( 200.0, 250.0 );
 	printf ( "\tstoreRand: %f\n\n", storeRand );
 	return 0;
 
