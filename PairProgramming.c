@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <cs50.h>
 
 
+// Function to get largest element:
 int GetIndexOfLargest ( int array [], int length )
 {
 	int largestElem = array [ 0 ];
@@ -14,8 +14,8 @@ int GetIndexOfLargest ( int array [], int length )
     	if ( largestElem < array [ loopVar ] )
     	{
 	        largestElem = array [ loopVar ];
-	        index 		= loopVar;
-		}
+            index = loopVar;
+        }
 		loopVar++;
     }
     while ( loopVar < length );
@@ -26,7 +26,7 @@ int GetIndexOfLargest ( int array [], int length )
 }
 
 
-// My Main func
+// My Main function
 int main ( void )
 {
 	int array [ 8 ] = { 99, 23, 16, 12, 14, 55, 22, 77 };
