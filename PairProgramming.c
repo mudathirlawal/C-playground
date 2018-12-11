@@ -7,7 +7,7 @@ int GetIndexOfLargest ( int array [], int length )
 {
 	int largestElem = array [ 0 ];
 	int loopVar = 0;
-	int index;
+	int index = 0;
 
     do
     {
